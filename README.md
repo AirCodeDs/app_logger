@@ -223,24 +223,55 @@ dependencies:
        </ol>
        </div>
         <!-- Installation -->
-        <div class="section-header" id="installation">
-            <h2>Installation</h2>
-        </div>
-        <div class="section-content">
-            <div class="installation-steps">
-                <pre><code>import 'package:app_logger/app_logger.dart';</code></pre>
-            </div>
-        </div>
-        <!-- Usage -->
-        <div class="section-header" id="usage">
-            <h2>Usage</h2>
-        </div>
-       <div class="section-content">
+        <!-- Installation -->
+<div class="section-header" id="installation">
+    <h2>Installation</h2>
+</div>
+<div class="section-content">
     <div class="installation-steps">
         <pre><code>app_logger:
   git:
     url: https://github.com/Raphael-BADA/app_logger.git</code></pre>
     </div>
+</div>
+
+<!-- Usage -->
+<div class="section-header" id="usage">
+    <h2>Usage</h2>
+</div>
+<div class="section-content">
+    <div class="installation-steps">
+        <pre><code>import 'package:app_logger/app_logger.dart';
+void main() {
+  //Exemple de donnée à logger
+  Map<String, dynamic> jsonMap = {
+    'firstName': 'Air',
+    'lastName': 'Code',
+    'age': 23,
+    'profession': 'Apps developper',
+  };
+
+  // Créer une instance de AppLogger avec les logs activés par défaut
+  var logger =
+      AppLogger(); // AppLogger(isActive:false) pour désactiver les loggs dans toutes l'appli
+
+  // Utiliser la méthode call pour logger un message
+  logger.call(
+    message: jsonMap,
+    logType: LogType.info,
+  );
+
+  // Désactiver les logs avec une fonction
+  logger.setIsActive(false);
+
+  // Les logs sont maintenant désactivés
+  logger.call(
+    message: "Ceci ne sera pas loggé",
+    logType: LogType.info,
+  );
+}</code></pre>
+    </div>
+</div>
 </div>
         <!-- Roadmap -->
         <!-- Contact -->
