@@ -196,8 +196,7 @@ void main() {
 
   // Utiliser la méthode call pour logger un message
   logger.call(
-    message: jsonMap,
-    logType: LogType.info,
+    jsonMap,
   );
 
   // Désactiver les logs avec une fonction
@@ -205,7 +204,7 @@ void main() {
 
   // Les logs sont maintenant désactivés
   logger.call(
-    message: "Ceci ne sera pas loggé",
+    "Ceci ne sera pas loggé",
     logType: LogType.info,
     hidden:false
   );

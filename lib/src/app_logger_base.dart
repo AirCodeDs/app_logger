@@ -18,16 +18,17 @@ class AppLogger {
     _isActive = isActive;
   }
 
-  void call({
-    required dynamic message,
-    required LogType logType,
-    required bool hidden,
+  void call(
+    dynamic message, {
+    LogType? logType,
+    bool? hidden,
     DateTime? time,
     Object? error,
     StackTrace? stackTrace,
   }) {
-    if (!_isActive || hidden)
+    if (!_isActive || hidden == true) {
       return; // Ne rien faire si les logs sont désactivés
+    }
 
     switch (logType) {
       case LogType.error:
@@ -43,6 +44,8 @@ class AppLogger {
         Logger().t(message, time: time, stackTrace: stackTrace);
         break;
       default:
+        Logger().t(message, time: time, stackTrace: stackTrace);
+        break;
     }
   }
 }
