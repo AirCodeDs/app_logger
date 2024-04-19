@@ -59,8 +59,6 @@ dependencies:
   app_logger:
     git:
       url: git://github.com/your-username/app_logger.git -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,7 +228,7 @@ dependencies:
         </div>
         <div class="section-content">
             <div class="installation-steps">
-                <pre><code>npm install app_logger</code></pre>
+                <pre><code>import 'package:app_logger/app_logger.dart';</code></pre>
             </div>
         </div>
         <!-- Usage -->
