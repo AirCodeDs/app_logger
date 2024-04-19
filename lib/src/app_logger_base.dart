@@ -5,7 +5,6 @@ class AppLogger {
   static AppLogger? _instance;
   bool _isActive;
 
-  // Constructeur privé pour empêcher l'instanciation directe
   AppLogger._(this._isActive);
 
   // Méthode factory pour créer ou récupérer l'instance unique du singleton
