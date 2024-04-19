@@ -63,7 +63,6 @@ dependencies:
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -184,7 +183,6 @@ dependencies:
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -255,12 +253,6 @@ dependencies:
             <p>raphaelbadak@gmail.com</p>
         </div>
         <!-- Acknowledgments -->
-        <!-- <div class="section-header" id="acknowledgments">
-            <h2>Acknowledgments</h2>
-        </div>
-        <div class="section-content">
-            <p>Write your acknowledgments here.</p>
-        </div> -->
         <!-- Back to Top -->
         <div class="footer">
             <p><a href="#readme-top">Back to top</a></p>
