@@ -207,6 +207,7 @@ void main() {
   logger.call(
     message: "Ceci ne sera pas loggé",
     logType: LogType.info,
+    hidden:false
   );
 }</code></pre>
     </div>

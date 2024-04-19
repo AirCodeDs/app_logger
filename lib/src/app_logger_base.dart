@@ -21,11 +21,13 @@ class AppLogger {
   void call({
     required dynamic message,
     required LogType logType,
+    required bool hidden,
     DateTime? time,
     Object? error,
     StackTrace? stackTrace,
   }) {
-    if (!_isActive) return; // Ne rien faire si les logs sont désactivés
+    if (!_isActive || hidden)
+      return; // Ne rien faire si les logs sont désactivés
 
     switch (logType) {
       case LogType.error:

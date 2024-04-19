@@ -16,6 +16,7 @@ void main() {
   // Utiliser la méthode call pour logger un message
   logger.call(
     message: jsonMap,
+    hidden: false,
     logType: LogType.info,
   );
 
@@ -26,5 +27,6 @@ void main() {
   logger.call(
     message: "Ceci ne sera pas loggé",
     logType: LogType.info,
+    hidden: false,
   );
 }
