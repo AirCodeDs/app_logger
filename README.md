@@ -189,7 +189,8 @@ dependencies:
     <div class="container">
         <div class="header">
             <h1>app_logger</h1>
-            <p>A flexible and customizable logging package for Dart applications.</p>
+            <h6>A flexible and customizable logging package for Dart applications.</h6>
+            <p></p>
         </div>
         <!-- Table of Contents -->
         <div class="toc">
@@ -199,11 +200,11 @@ dependencies:
                 <li><a href="#features">Features</a></li>
                 <li><a href="#installation">Installation</a></li>
                 <li><a href="#usage">Usage</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
+                <!-- <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#contributing">Contributing</a></li>
-                <li><a href="#license">License</a></li>
+                <li><a href="#license">License</a></li> -->
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#acknowledgments">Acknowledgments</a></li>
+                <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
             </ol>
         </div>
         <!-- About The Project -->
@@ -211,15 +212,20 @@ dependencies:
             <h2>About The Project</h2>
         </div>
         <div class="section-content">
-            <p>Write your project description here.</p>
+            <p>app_logger` is a Dart package designed to streamline logging within Dart and Flutter applications. It empowers developers to efficiently manage log messages with varying levels of severity (error, warning, info, normal) while offering the flexibility to customize logging behavior according to the application's mode. With `app_logger`, developers can seamlessly toggle logging on or off globally, saving time and effort when debugging or deploying applications.</p>
         </div>
         <!-- Features -->
         <div class="section-header" id="features">
             <h2>Features</h2>
         </div>
         <div class="section-content">
-            <p>Write your project features here.</p>
-        </div>
+        <ol>
+        <li>Log messages with different log levels: error, warning, info, normal.</li>
+        <li>Customizable logging behavior and output formats.</li>
+        <li>Ability to enable or disable logging dynamically.</li>
+        <li>Lightweight and easy to integrate into existing Dart and Flutter projects.</li>
+       </ol>
+       </div>
         <!-- Installation -->
         <div class="section-header" id="installation">
             <h2>Installation</h2>
@@ -233,46 +239,28 @@ dependencies:
         <div class="section-header" id="usage">
             <h2>Usage</h2>
         </div>
-        <div class="section-content">
-            <div class="usage-example">
-                <pre><code>import 'package:app_logger/app_logger.dart';</code></pre>
-            </div>
-        </div>
+       <div class="section-content">
+    <div class="installation-steps">
+        <pre><code>app_logger:
+  git:
+    url: https://github.com/Raphael-BADA/app_logger.git</code></pre>
+    </div>
+</div>
         <!-- Roadmap -->
-        <div class="section-header" id="roadmap">
-            <h2>Roadmap</h2>
-        </div>
-        <div class="section-content">
-            <p>Write your project roadmap here.</p>
-        </div>
-        <!-- Contributing -->
-        <div class="section-header" id="contributing">
-            <h2>Contributing</h2>
-        </div>
-        <div class="section-content">
-            <p>Write your contributing guidelines here.</p>
-        </div>
-        <!-- License -->
-        <div class="section-header" id="license">
-            <h2>License</h2>
-        </div>
-        <div class="section-content">
-            <p>Write your license information here.</p>
-        </div>
         <!-- Contact -->
         <div class="section-header" id="contact">
             <h2>Contact</h2>
         </div>
         <div class="section-content">
-            <p>Write your contact information here.</p>
+            <p>raphaelbadak@gmail.com</p>
         </div>
         <!-- Acknowledgments -->
-        <div class="section-header" id="acknowledgments">
+        <!-- <div class="section-header" id="acknowledgments">
             <h2>Acknowledgments</h2>
         </div>
         <div class="section-content">
             <p>Write your acknowledgments here.</p>
-        </div>
+        </div> -->
         <!-- Back to Top -->
         <div class="footer">
             <p><a href="#readme-top">Back to top</a></p>
