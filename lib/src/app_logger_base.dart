@@ -24,6 +24,7 @@ class AppLogger {
     bool? hidden,
     DateTime? time,
     Object? error,
+    String? page,
     StackTrace? stackTrace,
   }) {
     if (!_isActive || hidden == true) {
@@ -32,19 +33,54 @@ class AppLogger {
 
     switch (logType) {
       case LogType.error:
-        Logger().e(message, time: time, stackTrace: stackTrace);
+        Logger().e(
+          {
+            "page": page,
+            "data": message,
+          },
+          time: time,
+          stackTrace: stackTrace,
+        );
         break;
       case LogType.warning:
-        Logger().w(message, time: time, stackTrace: stackTrace);
+        Logger().w(
+          {
+            "page": page,
+            "data": message,
+          },
+          time: time,
+          stackTrace: stackTrace,
+        );
         break;
       case LogType.info:
-        Logger().i(message, time: time, stackTrace: stackTrace);
+        Logger().i(
+          {
+            "page": page,
+            "data": message,
+          },
+          time: time,
+          stackTrace: stackTrace,
+        );
         break;
       case LogType.normal:
-        Logger().t(message, time: time, stackTrace: stackTrace);
+        Logger().t(
+          {
+            "page": page,
+            "data": message,
+          },
+          time: time,
+          stackTrace: stackTrace,
+        );
         break;
       default:
-        Logger().t(message, time: time, stackTrace: stackTrace);
+        Logger().t(
+          {
+            "page": page,
+            "data": message,
+          },
+          time: time,
+          stackTrace: stackTrace,
+        );
         break;
     }
   }
