@@ -1,5 +1,11 @@
 import 'package:app_logger/src/log_type.dart';
 import 'package:logger/logger.dart';
+enum LogType {
+  error,
+  warning,
+  normal,
+  info,
+}
 
 class AppLogger {
   static AppLogger? _instance;
