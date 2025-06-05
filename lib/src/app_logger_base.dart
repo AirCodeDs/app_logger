@@ -1,5 +1,5 @@
-import 'package:app_logger/src/log_type.dart';
 import 'package:logger/logger.dart';
+
 enum LogType {
   error,
   warning,
@@ -11,19 +11,59 @@ class AppLogger {
   static AppLogger? _instance;
   bool _isActive;
 
-  AppLogger.(this._isActive);
+  AppLogger._(this._isActive);
 
-  // Méthode factory pour créer ou récupérer l'instance unique du singleton
   factory AppLogger({bool isActive = true}) {
     _instance ??= AppLogger._(isActive);
     return _instance!;
   }
 
-  // Méthode pour activer ou désactiver les logs
   void setIsActive(bool isActive) {
     _isActive = isActive;
   }
 
+  // Shortcut methods
+  void info(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+    call(
+      message,
+      logType: LogType.info,
+      page: page,
+      time: time,
+      stackTrace: stackTrace,
+    );
+  }
+
+  void warning(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+    call(
+      message,
+      logType: LogType.warning,
+      page: page,
+      time: time,
+      stackTrace: stackTrace,
+    );
+  }
+
+  void error(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+    call(
+      message,
+      logType: LogType.error,
+      page: page,
+      time: time,
+      stackTrace: stackTrace,
+    );
+  }
+
+  void debug(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+    call(
+      message,
+      logType: LogType.normal,
+      page: page,
+      time: time,
+      stackTrace: stackTrace,
+    );
+  }
+
+  // Generic logger call
   void call(
     dynamic message, {
     LogType? logType,
@@ -33,60 +73,30 @@ class AppLogger {
     String? page,
     StackTrace? stackTrace,
   }) {
-    if (!_isActive || hidden == true) {
-      return; // Ne rien faire si les logs sont désactivés
-    }
+    if (!_isActive || hidden == true) return;
+
+    final logData = {
+      "page": page,
+      "message": message,
+    };
+
+    final logger = Logger();
 
     switch (logType) {
       case LogType.error:
-        Logger().e(
-          {
-            "page": page,
-            "error": message,
-          },
-          time: time,
-          stackTrace: stackTrace,
-        );
+        logger.e(logData, time: time, stackTrace: stackTrace);
         break;
       case LogType.warning:
-        Logger().w(
-          {
-            "page": page,
-            "warning": message,
-          },
-          time: time,
-          stackTrace: stackTrace,
-        );
+        logger.w(logData, time: time, stackTrace: stackTrace);
         break;
       case LogType.info:
-        Logger().i(
-          {
-            "page": page,
-            "info": message,
-          },
-          time: time,
-          stackTrace: stackTrace,
-        );
+        logger.i(logData, time: time, stackTrace: stackTrace);
         break;
       case LogType.normal:
-        Logger().t(
-          {
-            "page": page,
-            "data": message,
-          },
-          time: time,
-          stackTrace: stackTrace,
-        );
+        logger.t(logData, time: time, stackTrace: stackTrace);
         break;
       default:
-        Logger().t(
-          {
-            "page": page,
-            "data": message,
-          },
-          time: time,
-          stackTrace: stackTrace,
-        );
+        logger.t(logData, time: time, stackTrace: stackTrace);
         break;
     }
   }
