@@ -9,9 +9,20 @@ enum LogType {
 
 class AppLogger {
   static AppLogger? _instance;
+  final Logger _logger;
   bool _isActive;
 
-  AppLogger._(this._isActive);
+  AppLogger._(this._isActive)
+      : _logger = Logger(
+          printer: PrettyPrinter(
+            methodCount: 2,
+            errorMethodCount: 8,
+            lineLength: 120,
+            colors: true,
+            printEmojis: true,
+            printTime: false,
+          ),
+        );
 
   factory AppLogger({bool isActive = true}) {
     _instance ??= AppLogger._(isActive);
@@ -22,8 +33,13 @@ class AppLogger {
     _isActive = isActive;
   }
 
-  // Shortcut methods
-  void info(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+  // Méthodes raccourcies
+  void info(
+    dynamic message, {
+    String? page,
+    DateTime? time,
+    StackTrace? stackTrace,
+  }) {
     call(
       message,
       logType: LogType.info,
@@ -33,7 +49,12 @@ class AppLogger {
     );
   }
 
-  void warning(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+  void warning(
+    dynamic message, {
+    String? page,
+    DateTime? time,
+    StackTrace? stackTrace,
+  }) {
     call(
       message,
       logType: LogType.warning,
@@ -43,7 +64,12 @@ class AppLogger {
     );
   }
 
-  void error(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+  void error(
+    dynamic message, {
+    String? page,
+    DateTime? time,
+    StackTrace? stackTrace,
+  }) {
     call(
       message,
       logType: LogType.error,
@@ -53,7 +79,12 @@ class AppLogger {
     );
   }
 
-  void debug(dynamic message, {String? page, DateTime? time, StackTrace? stackTrace}) {
+  void debug(
+    dynamic message, {
+    String? page,
+    DateTime? time,
+    StackTrace? stackTrace,
+  }) {
     call(
       message,
       logType: LogType.normal,
@@ -63,13 +94,12 @@ class AppLogger {
     );
   }
 
-  // Generic logger call
+  // Méthode principale
   void call(
     dynamic message, {
     LogType? logType,
     bool? hidden,
     DateTime? time,
-    Object? error,
     String? page,
     StackTrace? stackTrace,
   }) {
@@ -80,23 +110,21 @@ class AppLogger {
       "message": message,
     };
 
-    final logger = Logger();
-
     switch (logType) {
       case LogType.error:
-        logger.e(logData, time: time, stackTrace: stackTrace);
+        _logger.e(logData, stackTrace: stackTrace);
         break;
       case LogType.warning:
-        logger.w(logData, time: time, stackTrace: stackTrace);
+        _logger.w(logData, stackTrace: stackTrace);
         break;
       case LogType.info:
-        logger.i(logData, time: time, stackTrace: stackTrace);
+        _logger.i(logData);
         break;
       case LogType.normal:
-        logger.t(logData, time: time, stackTrace: stackTrace);
+        _logger.t(logData);
         break;
       default:
-        logger.t(logData, time: time, stackTrace: stackTrace);
+        _logger.t(logData);
         break;
     }
   }
