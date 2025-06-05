@@ -11,7 +11,7 @@ class AppLogger {
   static AppLogger? _instance;
   bool _isActive;
 
-  AppLogger._(this._isActive);
+  AppLogger.(this._isActive);
 
   // Méthode factory pour créer ou récupérer l'instance unique du singleton
   factory AppLogger({bool isActive = true}) {
@@ -42,7 +42,7 @@ class AppLogger {
         Logger().e(
           {
             "page": page,
-            "data": message,
+            "error": message,
           },
           time: time,
           stackTrace: stackTrace,
@@ -52,7 +52,7 @@ class AppLogger {
         Logger().w(
           {
             "page": page,
-            "data": message,
+            "warning": message,
           },
           time: time,
           stackTrace: stackTrace,
@@ -62,7 +62,7 @@ class AppLogger {
         Logger().i(
           {
             "page": page,
-            "data": message,
+            "info": message,
           },
           time: time,
           stackTrace: stackTrace,
